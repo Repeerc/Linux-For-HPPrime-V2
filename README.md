@@ -21,7 +21,7 @@
 2) Build Kernel `zImage` from <a>https://github.com/Repeerc/Linux-6.1.35-HP-Prime-V2_G1
 
 
-3) Build RootFS `rootfs.jffs2` from <a> https://github.com/Repeerc/Linux-6.1.35-HP-Prime-V2_G1
+3) Build RootFS `rootfs.jffs2` from <a>https://github.com/Repeerc/buildroot_hpprimev2
 
 ## STEP 2
 Make `LINUX.DAT` by `mkimg.sh`
