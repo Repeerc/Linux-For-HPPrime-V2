@@ -64,7 +64,7 @@ Block y...2040 : Arbitrary Data (data,swap etc.)
 Block 2047: Serial Number and other original system information
 
 
-When `BOOT1.ROM` boot, block 0-9 and 2040-2047 will be set to protected in case, so it can be flashed back to the original system.
+When `BOOT1.ROM` boot, block 0-9 and 2041-2047 will be set to protected in case, so it can be flashed back to the original system.
 
 
 It seems that `usbtool.exe` could not access over 64MB flash space, so `Kernel + Rootfs` were limited in 64MB.
