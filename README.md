@@ -6,7 +6,7 @@
 - [x] Keypad
 - [x] USB Host 1.1
 - [x] USB Devide 2.0
-- [x] DRM Support (X11/SDL)
+- [x] DRM Support (for X11/SDL)
 
 ![Sys1](pic/2.jpg)
 ![Sys1](pic/1.jpg)
@@ -18,26 +18,28 @@
 1) Build Bootloader `BOOT1.ROM` from <a>https://github.com/Repeerc/hpprimev2_linux_loader
 
 
-2) Build Kernel `zImage` from <a>https://github.com/Repeerc/Linux-6.1.35-HP-Prime-V2_G1
+2) Build Kernel `zImage` from <a>https://github.com/Repeerc/Kernel-6.1.35-HP-Prime-V2_G1
 
 
 3) Build RootFS `rootfs.jffs2` from <a>https://github.com/Repeerc/buildroot_hpprimev2
 
 ## STEP 2
-Make `LINUX.DAT` by `mkimg.sh`
+Make `LINUX.DAT` by using `mkimg.sh`
 
 ## STEP 3
 Flash `BOOT1.ROM` and `LINUX.DAT`.
 
-Using `usbtool.exe` select `Auto update` then click `Update` in Recovery Mode.
+By using `usbtool.exe`, connect calculator in Recovery Mode (`RESET` + `Symb`) , select `Auto update` then click `Update` .
 
 # Bugs:
 
-1) NAND Flash Host ECC can not work.
+1) NAND Flash Host ECC is not work.
 
 2) Could not reboot or poweroff when enable USB Gadget.
 
-3) Kernel panic after disable USB Gadget when poweroff.
+3) Kernel panic when disable USB Gadget.
+
+4) USB HOST Mode not work when enable USB Gadget.
 
 
 # Flash Layout
@@ -59,10 +61,10 @@ Block 64...y : Rootfs `rootfs.jffs2`
 
 Block y...2040 : Arbitrary Data (data,swap etc.)
 
-Block 2047: Serial Number and other primordial system information
+Block 2047: Serial Number and other original system information
 
 
-When `BOOT1.ROM` boot, block 0~9 and 2040~2047 will be set to protected in case, so it can be flashed back the original system.
+When `BOOT1.ROM` boot, block 0-9 and 2040-2047 will be set to protected in case, so it can be flashed back to the original system.
 
 
 It seems that `usbtool.exe` could not access over 64MB flash space, so `Kernel + Rootfs` were limited in 64MB.
